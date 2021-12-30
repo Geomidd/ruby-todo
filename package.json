@@ -10,7 +10,12 @@
     "sass": "^1.45.1"
   },
   "scripts": {
-    "build": "esbuild app/javascript/*.* --bundle --sourcemap --outdir=app/assets/builds",
+    "run:windows": "yarn build:windows && rails s",
+    "build": "esbuild app/javascript/application.js --bundle --sourcemap --outdir=app/assets/builds",
+    "build:windows": "node esbuild.windows.js",
     "build:css": "sass ./app/assets/stylesheets/application.bootstrap.scss ./app/assets/builds/application.css --no-source-map --load-path=node_modules"
+  },
+  "devDependencies": {
+    "glob": "^7.2.0"
   }
 }

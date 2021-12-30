@@ -1,1 +1,11 @@
-@import 'bootstrap/scss/bootstrap';
+// @import "bootstrap-sprockets";
+@import "bootstrap/scss/bootstrap";
+
+.striker {
+  text-decoration: line-through;
+}
+
+td a {
+  display: block;
+  width: 100%;
+}
