@@ -1,6 +1,6 @@
 <div id="<%= dom_id list %>">
   <td class="col-9 <%= list.completed ? 'striker' : '' %>">
-    <%= link_to list.description, edit_list_path(list) %>
+    <%= link_to list.description, edit_list_path(list), class: list.completed ? 'text-white' : 'text-dark' %>
     <% list.description %>
   </td>
 

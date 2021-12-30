@@ -1,23 +1,11 @@
-<h1>My To-Do List</h1>
-
-<center>
-  <div class="card" style="width: 18rem;">
-    <div class="card-body">
-      <%= render "form_index", list: @list %>
-    </div>
-  </div>
-</center>
-
-<br /><br />
-
 <div id="lists">
   <table class="table table-bordered">
   <tbody>
     <% @lists.each do |list| %>
-      <tr class="<%= list.completed ? 'table-secondary' : '' %>">
+      <tr class="<%= list.completed ? 'bg-secondary text-light' : 'text-dark' %>">
         <%= render list %>
         <td>
-          <center><%= button_to "Delete", list, method: :delete, class: 'btn btn-danger', data: {confirm: 'Are you sure?' } %></center>
+          <center><%= button_to "Delete", list, method: :delete, class: 'btn btn-outline-danger', data: {confirm: 'Are you sure?' } %></center>
         </td>
       </tr>
     <% end %>
