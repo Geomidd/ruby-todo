@@ -11,17 +11,17 @@
     </div>
   <% end %>
 
-  <div>
+  <div class="form-group">
     <%= form.label :description, style: "display: block" %>
-    <%= form.text_field :description %>
+    <%= form.text_field :description, class: 'form-control' %>
   </div>
 
-  <div>
-    <%= form.label :completed, style: "display: block" %>
-    <%= form.check_box :completed %>
+  <div class="form-check form-check-inline">
+    <%= form.label :completed, class: 'form-check-label' %>
+    <%= form.check_box :completed, class: 'form-check-input' %>
   </div>
 
-  <div>
-    <%= form.submit %>
+  <div class="form-group">
+    <%= form.submit "Update", class: 'form-control btn btn-outline-success' %>
   </div>
 <% end %>
