@@ -5,6 +5,21 @@
       <tr class="<%= list.completed ? 'bg-secondary text-light' : 'text-dark' %>">
         <%= render list %>
         <td>
+          <% if list.completed %>
+            <%= form_for (list) do |f| %>
+              <%= f.text_field :description, type: "hidden" %>
+              <%= f.check_box :completed, :checked => false, :style => "visibility: hidden" %>
+              <%= f.submit "Uncheck", class: 'btn btn-outline-light btn-sm' %>
+            <% end %>
+          <% else %>
+            <%= form_for (list) do |f| %>
+              <%= f.text_field :description, type: "hidden" %>
+              <%= f.check_box :completed, :checked => true, :style => "visibility: hidden" %>
+              <%= f.submit "Cross Off", class: 'btn btn-outline-secondary btn-sm' %>
+            <% end %>
+          <% end %>
+        </td>
+        <td>
           <center><%= button_to "Delete", list, method: :delete, class: 'btn btn-outline-danger', data: {confirm: 'Are you sure?' } %></center>
         </td>
       </tr>
@@ -13,4 +28,12 @@
   </table>
 </div>
 
-<%= link_to "Add todo item", new_list_path, class: 'btn btn-secondary text-white' %>
+<% link_to "Add todo item", new_list_path, class: 'btn btn-secondary text-white' %>
+
+<br />
+<br />
+
+<center>
+  <%= link_to 'Delete Completed Items', home_trash_em_path, data: { confirm: 'Are you sure?' } %>
+  <%= link_to 'Delete All Items', home_trash_em_all_path, data: { confirm: 'Are you sure?' } %>
+</center>
